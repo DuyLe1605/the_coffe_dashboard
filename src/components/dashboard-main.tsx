@@ -113,7 +113,7 @@ export default function Dashboard() {
                                     );
                                     return;
                                 }
-                                setToDate(new Date(event.target.value));
+                                setFromDate(new Date(event.target.value));
                             }}
                         />
                     </div>
