@@ -101,9 +101,20 @@ export default function Dashboard() {
                                 " ",
                                 "T"
                             )}
-                            onChange={(event) =>
-                                setFromDate(new Date(event.target.value))
-                            }
+                            onChange={(event) => {
+                                if (
+                                    isAfter(
+                                        new Date(event.target.value),
+                                        initToDate
+                                    )
+                                ) {
+                                    toast.error(
+                                        "Xin vui lòng chọn ngày bé hơn hoặc bằng ngày hiện tại !"
+                                    );
+                                    return;
+                                }
+                                setToDate(new Date(event.target.value));
+                            }}
                         />
                     </div>
                     <div className="flex items-center">
